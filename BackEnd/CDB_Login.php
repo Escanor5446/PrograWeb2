@@ -32,17 +32,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             ];
 
             // Redirigir con mensaje de bienvenida
-            header("Location: ../PHP/Inicio.php?mensaje=" . urlencode("Bienvenido, " . $Usuario["Nombre"]));
+            header("Location: ../PHP/Inicio.php?Mensaje=" . urlencode("Bienvenido, " . $Usuario["Nombre"]));
         } else {
             // Redirigir con error en contraseña
-            header("Location: ../PHP/Login.php?mensaje=" . urlencode("Contraseña incorrecta."));
+            header("Location: ../PHP/Login.php?Mensaje=" . urlencode("Contraseña incorrecta."));
         }
     } else {
         // Redirigir con error de Usuario no encontrado
-        header("Location: ../PHP/Login.php?mensaje=" . urlencode("Usuario no encontrado."));
+        header("Location: ../PHP/Login.php?Mensaje=" . urlencode("Usuario no encontrado."));
     }
 } else {
-    header("Location: ../PHP/Login.php?mensaje=" . urlencode("Método no permitido."));
+    header("Location: ../PHP/Login.php?Mensaje=" . urlencode("Método no permitido."));
 }
 
 // Cerrar la declaración y la conexión

@@ -34,8 +34,15 @@
 </nav>
     </header>
     <div class="main-container">
-        <form class="Login-form" action="../PHP/Busqueda.php" method="post">
+        <form class="Login-form" action="../BackEnd/CDB_Login.php" method="post">
             <h2>Iniciar Sesión</h2>
+
+            <?php if (isset($_GET['Mensaje'])): ?>
+                <div class="Mensaje">
+                    <?php echo htmlspecialchars($_GET['Mensaje']); ?>
+                </div>
+            <?php endif; ?>
+
             <div id="alert-container">
             </div>
             <label for="Username">Nombre de Usuario</label>

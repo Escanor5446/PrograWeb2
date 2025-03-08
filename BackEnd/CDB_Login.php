@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("../Conexion_DB/conexion.php");
+include_once("../Conexion_DB/Conexion.php");
 
 // Crear una instancia de la clase Conexion
 $Conexion = new Conexion();
@@ -14,33 +14,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $Password = $_POST["Password"];
 
     // Buscar el Usuario
-    $sql = "SELECT ID_Usuario, Nombre, Email, Password FROM Usuarios WHERE Email = ?";
+    $sql = "SELECT ID_Usuario, Nombre, Email, Contraseña FROM Usuarios WHERE Email = ?";
     $stmt = $Conn->prepare($sql);
     $stmt->bind_param("s", $Email);
     $stmt->execute();
     $Resultado = $stmt->get_result();
 
-    if ($Resultado->num_rows === 1) {
-        $Usuario = $Resultado->fetch_assoc();
+    $Usuario = $Resultado->fetch_assoc();
 
-        if (Password_verify($Password, $Usuario["Password"])) {
-            // Guardar datos en sesión
-            $_SESSION["Usuario"] = [
-                "ID_Usuario" => $Usuario["ID_Usuario"],
-                "Nombre" => $Usuario["Nombre"],
-                "Email" => $Usuario["Email"]
-            ];
+    // Guardar datos en sesión
+    $_SESSION["Usuario"] = [
+        "ID_Usuario" => $Usuario["ID_Usuario"],
+        "Nombre" => $Usuario["Nombre"],
+        "Email" => $Usuario["Email"]
+    ];
 
-            // Redirigir con mensaje de bienvenida
-            header("Location: ../PHP/Inicio.php?Mensaje=" . urlencode("Bienvenido, " . $Usuario["Nombre"]));
-        } else {
-            // Redirigir con error en contraseña
-            header("Location: ../PHP/Login.php?Mensaje=" . urlencode("Contraseña incorrecta."));
-        }
-    } else {
-        // Redirigir con error de Usuario no encontrado
-        header("Location: ../PHP/Login.php?Mensaje=" . urlencode("Usuario no encontrado."));
-    }
+    // Redirigir con mensaje de bienvenida
+    header("Location: ../PHP/Busqueda.php?Mensaje=" . urlencode("Bienvenido, " . $Usuario["Nombre"]));
+    
 } else {
     header("Location: ../PHP/Login.php?Mensaje=" . urlencode("Método no permitido."));
 }

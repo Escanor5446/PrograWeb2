@@ -8,7 +8,8 @@ CREATE TABLE Usuarios (
     Contraseña          VARCHAR(100) NOT NULL,
     Fecha_Nac           Date DEFAULT NULL,
     Avatar              longblob DEFAULT NULL,
-    Fecha_Registro      TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    Fecha_Registro      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Descripcion         Text DEFAULT NULL
 );
 
 CREATE TABLE Categorias (

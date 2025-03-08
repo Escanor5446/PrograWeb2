@@ -44,6 +44,13 @@
     
         <section class="register">
             <div class="register-container">
+                
+                <?php if (isset($_GET['Mensaje'])): ?>
+                    <div class="Mensaje">
+                        <?php echo htmlspecialchars($_GET['Mensaje']); ?>
+                    </div>
+                <?php endif; ?>
+
                 <form action="../BackEnd/CDB_Registro.php" method="POST" enctype="multipart/form-data">
                     
                     <h1>Registro de Usuario</h1>

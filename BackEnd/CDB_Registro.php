@@ -13,35 +13,35 @@ $Conn = $Conexion->Conn;
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $Nombre = $_POST["Name"];
     $Email = $_POST["Email"];
-    $password = password_hash($_POST["Password"], PASSWORD_BCRYPT);
+    $Password = password_hash($_POST["Password"], PASSWORD_BCRYPT);
     $Fecha_Nacimiento = $_POST["Dob"];
     $Descripcion = $_POST['Description']; 
 
     // Procesar foto de perfil
-    $Foto_Perfil = null;
+    $Avatar = null;
     if (isset($_FILES["Avatar"]) && $_FILES["Avatar"]["tmp_name"] != "") {
-        $Foto_Perfil = addslashes(file_get_contents($_FILES["Avatar"]["tmp_name"]));
+        $Avatar = addslashes(file_get_contents($_FILES["Avatar"]["tmp_name"]));
     }
 
     // Insertar en la base de datos
-    $sql = "INSERT INTO usuarios (Name, Email, Password, Fecha_Nac, Foto_Perfil, Descripcion)
+    $sql = "INSERT INTO Usuarios (Nombre, Email, Contraseña, Fecha_Nac, Avatar, Descripcion)
             VALUES (?, ?, ?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssss", $Nombre, $Email, $Password, $Fecha_Nacimiento, $Foto_Perfil, $Descripcion);
+    $stmt = $Conn->prepare($sql);
+    $stmt->bind_param("ssssss", $Nombre, $Email, $Password, $Fecha_Nacimiento, $Avatar, $Descripcion);
 
     if ($stmt->execute()) {
         // Redirigir con mensaje de éxito
-        header("Location: ../PHP/login.php?mensaje=" . urlencode("Registro exitoso. Inicia sesión."));
+        header("Location: ../PHP/Login.php?mensaje=" . urlencode("Registro exitoso. Inicia sesión."));
     } else {
         // Redirigir con mensaje de error
-        header("Location: ../PHP/registro.php?mensaje=" . urlencode("Error al registrar: " . $stmt->error));
+        header("Location: ../PHP/Registro.php?mensaje=" . urlencode("Error al registrar: " . $stmt->error));
     }
 } else {
-    header("Location: ../PHP/registro.php?mensaje=" . urlencode("Método no permitido."));
+    header("Location: ../PHP/Registro.php?mensaje=" . urlencode("Método no permitido."));
 }
 
 // Cerrar la declaración y la conexión
-$stmt->close();
+$stmt->Close();
 $conexion->cerrar();
 
 ?>

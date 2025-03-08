@@ -37,16 +37,10 @@
         <form class="Login-form" action="../BackEnd/CDB_Login.php" method="post">
             <h2>Iniciar Sesión</h2>
 
-            <?php if (isset($_GET['Mensaje'])): ?>
-                <div class="Mensaje">
-                    <?php echo htmlspecialchars($_GET['Mensaje']); ?>
-                </div>
-            <?php endif; ?>
-
             <div id="alert-container">
             </div>
-            <label for="Username">Nombre de Usuario</label>
-            <input type="Text" id="Username" name="Username" required>
+            <label for="Email">Correo Electrónico:</label>
+            <input type="Email" id="Email" name="Email" required>
             <label for="Password">Contraseña</label>
             <input type="Password" id="Password" name="Password" required>
             <button type="submit" class="btn btn-primary">Iniciar Sesión</button>

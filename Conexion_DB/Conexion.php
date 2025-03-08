@@ -2,14 +2,14 @@
 class Conexion {
     private $Servidor = "localhost";
     private $Usuario = "root";
-    private $password = "";
+    private $Password = "";
     private $Base_Datos = "LinkUp";
     public $Conn;
     public function __construct() {
-        $this->conn = new mysqli(
+        $this->Conn = new mysqli(
             $this->Servidor,
             $this->Usuario,
-            $this->password,
+            $this->Password,
             $this->Base_Datos
         );
 

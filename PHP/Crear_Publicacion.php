@@ -35,7 +35,7 @@
     </nav>
     </header>
 
-    <div class="contenedor-formulario">
+    <div class="formulario-publicacion-container">
         <div class="formulario-publicacion">
             <h1 class="text-center">Crear nueva publicación</h1>
             <form action="" method="POST" enctype="multipart/form-data">
@@ -62,6 +62,7 @@
                 <label for="categoria">Categoría</label>
                 <select class="form-control" id="categoria" name="categoria" required>
                     <option value="" disabled selected>Selecciona una categoría</option>
+                    
                 </select>
             </div>
             </form>

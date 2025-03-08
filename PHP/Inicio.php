@@ -4,90 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio - LinkUp</title>
-    <link rel="icon" href="LinkUp.png" type="image/png">
+    <link rel="icon" href="../Imagenes/LinkUp.png" type="image/png">
     <!-- Agregar Bootstrap -->
     <link rel="Stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="Stylesheet" href="Inicio.css">
+    <link rel="Stylesheet" href="../CSS/Inicio.css">
 </head>
 <body>
     <div class="content-wrapper">
         <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">
-        <img src="LinkUp.png" alt="LinkUp Logo" style="height: 40px;">
-        <img src="LinkUp 2.png" alt="LinkUp Logo" style="height: 40px;">
+        <img src="../Imagenes/LinkUp.png" alt="LinkUp Logo" style="height: 40px;">
+        <img src="../Imagenes/LinkUp 2.png" alt="LinkUp Logo" style="height: 40px;">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-            <?php if (isset($_SESSION['user_id'])): ?>
-                <!-- Opciones visibles cuando el usuario está logueado -->
-                
                 <li class="nav-item">
-                    <a class="nav-link" href="Inicio.php">Inicio</a>
-                </li>
-                
-                <?php 
-                // Verificar el rol del usuario
-                if ($_SESSION['user_role'] == 1): // Estudiante
-                ?>
-                    <li class="nav-item">
-                    <a class="nav-link" href="Busqueda.php">Publicaciones</a>
-                </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Mis_Publicaciones.php">Mis Publicaciones</a>
-                    </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Chat.php??>">Chat</a>
-                </li>
-                <?php elseif ($_SESSION['user_role'] == 2): // Instructor ?>
-                <li class="nav-item">
-                        <a class="nav-link" href="crear-Publicación.php">Crear Publicación</a>
+                    <a class="nav-link" href="../PHP/Registro.php">Registro</a>
                 </li>
                 <li class="nav-item">
-                        <a class="nav-link" href="Mis_Publicaciones_P.php">Mis Publicaciones</a>
+                    <a class="nav-link btn btn-primary text-white" href="../PHP/Login.php">Iniciar sesión</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Chat.php?>">Chat</a>
-                </li>
-                <?php endif; ?>
-                
-                
-                <li class="nav-item">
-                    <a class="nav-link btn btn-primary text-white" href="Perfil.php">Perfil</a>
-                </li>
-
-            <?php else: ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="Inicio.php">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Busqueda.php">Publicaciones</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Registro.php">Registro</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link btn btn-primary text-white" href="Login.php">Iniciar sesión</a>
-                </li>
-            <?php endif; ?>
         </ul>
     </div>
 </nav>
         </header>
 
-
-        
         <!-- Sección Desc -->
         <section class="Desc">
             <div class="Desc-content">
                 <div class="text-content">
                     <h1>Expresa lo que sientes y lo que quieres</h1>
                     <p>Accede a publicaciones tanto de otros usuarios asi como las tuyas.</p>
-                    <a href="Busqueda.php" class="btn-primary">Explorar Publicaciones</a>
-                    
                 </div>
                 <div class="image-content">
                     <img src="https://i.ibb.co/FqkGY4S/Dise-o-sin-t-tulo.png" alt="Imagen Desc">

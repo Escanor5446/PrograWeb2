@@ -160,18 +160,18 @@ nav {
     max-width: 800px;
 }
 
-.cursos {
+.publicaciones {
     padding: 50px 20px;
     text-align: center;
 }
 
-.cursos h2 {
+.publicaciones h2 {
     font-size: 2.5em;
     margin-bottom: 40px;
     color: #ffffff;
 }
 
-.cursos.recomendados {
+.publicaciones.recomendados {
     background: linear-gradient(to bottom, #3b3b3b,#181818);
 }
 
@@ -231,7 +231,7 @@ nav {
     background-color: #005bb5;
 }
 
-.cursos.MasVen {
+.publicaciones.MasVen {
     background: linear-gradient(to bottom, #3b3b3b,#181818);
 }
 
